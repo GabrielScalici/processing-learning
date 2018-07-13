@@ -1,4 +1,4 @@
-function Box(x,y,w,h){
+function Box(x, y, w, h){
     this.body = Bodies.rectangle(x, y, w, h);
     this.w = w;
     this.h = h;
@@ -8,9 +8,9 @@ function Box(x,y,w,h){
     this.show = function() {
         var pos = this.body.position;
         var angle = this.body.angle;
-        push()
+        push();
         translate(pos.x, pos.y);
-        rect(0,0,this.w,this.h);
+        rect(0, 0, this.w, this.h);
         pop();
     }
 }

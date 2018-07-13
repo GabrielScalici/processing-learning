@@ -6,18 +6,31 @@ var Engine = Matter.Engine,
 
 var engine;
 var world;
-var box1;
+var boxes = [];
+var ground;
+
 
 function setup() {
     createCanvas(1200,640);
     engine = Engine.create();
     world = engine.world;
     Engine.run(engine);
-    box1 = new Box(200, 100, 50, 50)
+
+    ground = Bodies.rectangle(300, height, width, 10, {isStatic:true});
+    World.add(world, ground);
+}
+
+function mouseDragged() {
+    boxes.push(new Box(mouseX, mouseY, 20, 20));
+    console.log("ola");
 
 }
 
 function draw() {
-    background(255);
-    box1.show();
+    background(0);
+
+    for(var i=0; i < boxes.length; i++){
+        boxes[i].show();
+    }
+
 }
